@@ -35,7 +35,7 @@ header {
   bottom: -10%;
 }
 
-.jobs {
+.events {
   position: relative;
   z-index: 3;
   height: 99px;
@@ -46,11 +46,11 @@ header {
   border-bottom: 1px solid #85adb133;
 }
 
-.jobs div:not(:first-child) {
+.events div:not(:first-child) {
   margin-left: 0;
 }
 
-.jobcard {
+.eventcard {
   overflow: hidden;
   position: relative;
   z-index: 4;
@@ -66,16 +66,16 @@ header {
   border: 2px solid #a7cfd2;
 }
 
-.jobcard:hover {
+.eventcard:hover {
   border: 2px solid #35545a;
 }
 
-.jobname {
+.eventname {
   color: #222d2f;
   font-weight: 500;
 }
 
-.jobtime {
+.eventtime {
   color: #333;
   font-size: 0.9rem;
 }
