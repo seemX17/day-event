@@ -1,38 +1,100 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100%;
+}
+header {
+  background-color: #fafafa;
+}
+.logo {
+  width: 180px;
+  padding: 20px;
+}
+
+.calendar {
+  background-color: #f7f8f9;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 6rem;
+}
+
+.row {
+  display: flex;
+}
+.time {
+  width: 160px;
+  display: flex;
+  align-items: flex-end;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.hour {
+  color: #747d8c;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  bottom: -10%;
 }
 
-.App-link {
-  color: #61dafb;
+.jobs {
+  position: relative;
+  z-index: 3;
+  height: 99px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  border-left: 1px solid #85adb133;
+  border-bottom: 1px solid #85adb133;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.jobs div:not(:first-child) {
+  margin-left: 0;
+}
+
+.jobcard {
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+  flex: 1;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background-color: #a7cfd2;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in;
+  border: 2px solid #a7cfd2;
+}
+
+.jobcard:hover {
+  border: 2px solid #35545a;
+}
+
+.jobname {
+  color: #222d2f;
+  font-weight: 500;
+}
+
+.jobtime {
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.content {
+  position: relative;
+  z-index: 100;
+}
+
+.coloredBgs {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.red {
+  height: 85px;
+  background-color: #ea2027;
 }
