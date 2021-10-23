@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
+import { Alert, AlertI } from './shared/components/Alert';
 import { hourToString } from './shared/helpers';
 import { EventData } from './shared/models';
 
@@ -13,21 +14,21 @@ const testData = [
   {
     fromHour: 14, toHour: 15, title: "Lunch"
   },
-  {
-    fromHour: 11, toHour: 15, title: "Superbowl"
-  },
-  {
-    fromHour: 12, toHour: 14, title: "World Cup"
-  },
-  {
-    fromHour: 9, toHour: 10, title: "Coffee Meetup"
-  },
-  {
-    fromHour: 9, toHour: 10, title: "Enter Office"
-  },
-  {
-    fromHour: 17, toHour: 18, title: "Tea Break"
-  }
+  // {
+  //   fromHour: 11, toHour: 15, title: "Superbowl"
+  // },
+  // {
+  //   fromHour: 12, toHour: 14, title: "World Cup"
+  // },
+  // {
+  //   fromHour: 9, toHour: 10, title: "Coffee Meetup"
+  // },
+  // {
+  //   fromHour: 9, toHour: 10, title: "Enter Office"
+  // },
+  // {
+  //   fromHour: 17, toHour: 18, title: "Tea Break"
+  // }
 ]
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
   const [startHour] = useState(9)
   // calendar end time
   const [endHour] = useState(21)
+  const [alert, setAlert] = useState<AlertI>({ type: "", message: "", open: false });
 
   useEffect(() => {
     sortData();
@@ -91,6 +93,8 @@ function App() {
     let data = events;
     data = data.filter((event) => event.id != index);
     setEvents(data);
+    setAlert({ type: "error", message: "Event deleted!", open: true });
+    setTimeout(() => { setAlert({ type: "", message: "", open: false }); }, 1000)
   }
 
   // method to render cards, looping through each event at a given time span index
@@ -133,7 +137,7 @@ function App() {
       <header>
         <img src="./logo.svg" alt="Sawayo logo" className="logo" />
       </header>
-
+      <Alert type={alert?.type} message={alert?.message} open={alert?.open} />
       <div className="calendar">
         <div className="container d-flex">
           <div className="left">

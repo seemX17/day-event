@@ -18,6 +18,48 @@ $card: #00cec9;
     }
   }
 
+  .alert {
+    height: 21px;
+    border-radius: 2px;
+    position: absolute;
+    width: fit-content;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    min-width: 200px;
+    display: none;
+    font-size: 12px;
+    transition: all 0.2s ease-in-out;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 5px;
+    }
+  }
+
+  .alert.show {
+    display: flex;
+  }
+
+  .alert.error {
+    background-color: #ef8b80;
+    color: #fff;
+
+    &::before {
+      background-color: #E74C3C;
+    }
+  }
+
   .calendar {
     background-color: $calendar;
     flex: 1;
