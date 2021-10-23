@@ -13,21 +13,21 @@ const testData = [
   {
     fromHour: 14, toHour: 15, title: "Lunch"
   },
-  // {
-  //   fromHour: 11, toHour: 15, title: "Superbowl"
-  // },
-  // {
-  //   fromHour: 12, toHour: 14, title: "World Cup"
-  // },
-  // {
-  //   fromHour: 9, toHour: 10, title: "Coffee Meetup"
-  // },
-  // {
-  //   fromHour: 9, toHour: 10, title: "Enter Office"
-  // },
-  // {
-  //   fromHour: 17, toHour: 18, title: "Tea Break"
-  // }
+  {
+    fromHour: 11, toHour: 15, title: "Superbowl"
+  },
+  {
+    fromHour: 12, toHour: 14, title: "World Cup"
+  },
+  {
+    fromHour: 9, toHour: 10, title: "Coffee Meetup"
+  },
+  {
+    fromHour: 9, toHour: 10, title: "Enter Office"
+  },
+  {
+    fromHour: 17, toHour: 18, title: "Tea Break"
+  }
 ]
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
   const [endHour] = useState(21)
 
   useEffect(() => {
-    sortData()
+    sortData();
   }, [])
 
   // sort the events based on their start time and filter events that don't satisfy calendar timeline
@@ -86,6 +86,13 @@ function App() {
     return false
   }
 
+  //delete event on click
+  const deleteEvent = (index: number) => {
+    let data = events;
+    data = data.filter((event) => event.id != index);
+    setEvents(data);
+  }
+
   // method to render cards, looping through each event at a given time span index
   const renderCards = (index: number) => {
     // get all the events starting at given index
@@ -102,7 +109,8 @@ function App() {
           height: event.getSpan() * 100 - 1,
           justifyContent: event.getSpan() === 1 ? 'center' : 'flex-start',
           marginLeft: isBgRed(index, cardIndex, event) ? 20 : 0
-        }}>
+        }}
+        onClick={() => { deleteEvent(event.id) }}>
         <div className="backgrounds d-flex flex-column">
           {
             (new Array(event.getSpan()).fill("", 0, event.getSpan()).map((item, i) =>
