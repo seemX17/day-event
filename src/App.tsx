@@ -49,7 +49,7 @@ function App() {
     let sortedEvents = testData
       .sort((a, b) => (a.fromHour - b.fromHour) > 0 ? 1 : -1)
       .map(item => new EventData(item))
-      .filter(item => item.fromHour >= startHour && item.toHour < endHour && item.fromHour < endHour && item.toHour <= endHour)
+      .filter(item => item.fromHour >= startHour && item.toHour <= endHour && item.fromHour < endHour && item.toHour <= endHour)
     // assign an id to the events which is the same as index of the initial sorted array
     sortedEvents = sortedEvents.map((event, index) => {
       event.id = index;
