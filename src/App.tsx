@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
-import { Alert, AlertI } from './shared/components/Alert';
+import { Alert } from './shared/components/Alert';
 import { hourToString } from './shared/helpers';
 import { EventData } from './shared/models';
+import { AlertI } from './shared/models/alert';
 
 const testData = [
   {

@@ -11,8 +11,3 @@ export function Alert(props: Props) {
     </div>
 }
 
-export interface AlertI {
-    message: string;
-    open: boolean;
-    type: string;
-}
